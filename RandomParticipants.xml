@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+  <ModulePrefs title="Random Participants" height="100" width="550">
+  <Require feature="dynamic-height"/>
+  <Require feature="rpc"/>
+</ModulePrefs>
+<Content type="html">
+<![CDATA[
+<!DOCTYPE html>
+
+<link rel="stylesheet" type="text/css" href="bootstrap-2.3.1/css/bootstrap.min.css" />
+
+<script type="text/javascript" src="https://plus.google.com/hangouts/_/api/v1/hangout.js"></script>
+<script src="jquery-1.9.1/jquery-1.9.1.min.js"></script>
+<script src="bootstrap-2.3.1/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+    .img-circle {
+        width: 200px;
+        height: 200px;
+    }
+</style>
+
+<div>
+    <div style="text-align: center;">
+        <img src="https://lorempixel.com/g/400/400/" class="img-circle" id="participant-img">
+    </div>
+    <div id="next">
+        <a href="javascript: RandomParticipants.Next();" class="btn btn-large btn-block btn-danger">NEXT</a>
+    </div>
+</div>
+
+<script type="text/javascript" src="RandomParticipants.js"></script>
+
+
+]]></Content>
+</Module>
+
