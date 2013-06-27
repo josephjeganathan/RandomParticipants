@@ -33,6 +33,7 @@ var RandomParticipants = function () {
                 }
             }
             $("#next").hide();
+            overlay.setVisible(false);
         },
         SetNextParticipant: function (id) {
             return gapi.hangout.data.setValue(nextParticipantKey, id);
@@ -49,18 +50,16 @@ var RandomParticipants = function () {
                 }
                 var nextParticipant = gapi.hangout.getParticipantById(nextParticipantId);
                 $("#participant-img").attr("src", nextParticipant.person.image.url);
+                $("#participant").text(nextParticipant.person.displayName);
             }
         },
         GenerateOverlay: function () {
             var url = "https://raw.github.com/josephjeganathan/RandomParticipants/master/images/" + Math.floor(Math.random() * 18) + ".png";
 
             var topHat = gapi.hangout.av.effects.createImageResource(url);
-            overlay = topHat.createFaceTrackingOverlay({
-                'trackingFeature': gapi.hangout.av.effects.FaceTrackingFeature.NOSE_ROOT,
-                'offset': {x: 0,y: -0.8},
-                'scaleWithFace': true,
-                'rotateWithFace': true
-            });
+            overlay = topHat.createOverlay();
+            overlay.setPosition(-0.3, -0.3);
+            overlay.setScale(0.25, gapi.hangout.av.effects.ScaleReference.WIDTH);
         }
     };
 

@@ -3,6 +3,7 @@
 <head>
     <title>Random Participants</title>
     <link rel="stylesheet" type="text/css" href="bootstrap-2.3.1/css/bootstrap.min.css" />
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans|PT+Sans+Narrow' rel='stylesheet' type='text/css' />
 
     <script src="jquery-1.9.1/jquery-1.9.1.min.js"></script>
     <script src="bootstrap-2.3.1/js/bootstrap.min.js"></script>
@@ -11,11 +12,20 @@
         .img-circle {
             height: 200px;
         }
+        .participant {
+            text-align: center;
+            font-family:'PT Sans Narrow','PT Sans',Helvetica,Arial,sans-serif ;
+            color: #686868;
+            font-size: 30px;
+            line-height: 40px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
     <div>
-        <div style="text-align: center;">
+        <div class="participant" id="participant">Participant Name</div>
+        <div style="text-align: center;padding: 5px;">
             <img src="http://lorempixel.com/g/400/400/" class="img-circle" id="participant-img">
         </div>
         <div id="next">
