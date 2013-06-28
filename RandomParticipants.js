@@ -19,7 +19,9 @@ var RandomParticipants = function () {
             for (var i = 0; i < participants.length; i++) {
                 orderedParticipants.push(participants[i].id);
             }
-            orderedParticipants = orderedParticipants.sort(function () { return Math.random() });
+            orderedParticipants = orderedParticipants.sort(function() {
+                return Math.random() - Math.random() > 0 ? 1 : -1;
+            });
 
             gapi.hangout.data.setValue(orderedParticipantsKey, JSON.stringify(orderedParticipants));
 
@@ -28,8 +30,9 @@ var RandomParticipants = function () {
         Next: function(){
             var participants = JSON.parse(gapi.hangout.data.getValue(orderedParticipantsKey));
             for (var i = 0; i < participants.length; i++) {
-                if (participants[i] == myId && participants.length != i + 1) {
-                    gapi.hangout.data.setValue(nextParticipantKey, participants[i + 1]);
+                if (participants[i] == myId) {
+                    var nextIndex = participants.length != i + 1 ? i + 1 : 0;
+                    gapi.hangout.data.setValue(nextParticipantKey, participants[nextIndex]);
                 }
             }
             $("#next").hide();
